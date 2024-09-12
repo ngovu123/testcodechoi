@@ -12,7 +12,7 @@ app.use(cors());
 const upload = multer({ storage: multer.memoryStorage() });
 
 const WHISPER_API_URL = 'https://api.openai.com/v1/audio/transcriptions';
-const OPENAI_API_KEY = 'sk-7Yi3VKT10vAxUjxzwvc5Nhux0RnvcBx097GAvwMl86T3BlbkFJPsEksgc8gDl9UxqeNduwBn3WxOHcnYxY9oL7bA2pkA';
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 // Add a handler for / for health-check
 app.get('/', (req, res) => {
