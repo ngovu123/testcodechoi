@@ -1,8 +1,8 @@
 const axios = require('axios');
 
 async function getSlidesFromTranscription(transcription) {
-  const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
-  const OPENAI_API_URL = 'https://api.openai.com/v1/completions';
+  const OPENAI_API_KEY = 'sk-7Yi3VKT10vAxUjxzwvc5Nhux0RnvcBx097GAvwMl86T3BlbkFJPsEksgc8gDl9UxqeNduwBn3WxOHcnYxY9oL7bA2pkA';
+  const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
 
   const prompt = `You are an AI that converts text into slides with headers and bullet points. Turn the following text into slides:
 
@@ -32,10 +32,10 @@ YOUR RESPONSE:`;
 
   try {
     const response = await axios.post(OPENAI_API_URL, {
-      model: 'text-davinci-003',
-      prompt: prompt,
+      model: 'gpt-3.5-turbo',
+      messages: [{ role: 'user', content: prompt }],
       temperature: 0.7,
-      max_tokens: 1297,
+      max_tokens: 1500,
       top_p: 1,
       frequency_penalty: 0,
       presence_penalty: 0,
@@ -46,9 +46,8 @@ YOUR RESPONSE:`;
       },
     });
 
-    console.log('response.data.choices[0].text:', response.data.choices[0].text);
-
-    const parsedResponse = JSON.parse(response.data.choices[0].text.trim());
+    const responseText = response.data.choices[0].message.content.trim();
+    const parsedResponse = JSON.parse(responseText);
     return parsedResponse;
   } catch (error) {
     console.error('Error getting slides:', error);

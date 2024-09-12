@@ -12,7 +12,7 @@ app.use(cors());
 const upload = multer({ storage: multer.memoryStorage() });
 
 const WHISPER_API_URL = 'https://api.openai.com/v1/audio/transcriptions';
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+const OPENAI_API_KEY = 'sk-7Yi3VKT10vAxUjxzwvc5Nhux0RnvcBx097GAvwMl86T3BlbkFJPsEksgc8gDl9UxqeNduwBn3WxOHcnYxY9oL7bA2pkA';
 
 // Add a handler for / for health-check
 app.get('/', (req, res) => {
@@ -30,8 +30,7 @@ app.post('/whisper', upload.single('audio'), async (req, res) => {
     if (req.file.size > MAX_FILE_SIZE_BYTES) {
       return res.status(400).json({ error: `File size must be less than ${MAX_FILE_SIZE_MB}MB` });
     }
-    //print the length of the file
-    console.log(req.file.size);
+
     // Get the audio file from the request
     const audioFile = req.file.buffer;
 
@@ -60,7 +59,7 @@ app.post('/whisper', upload.single('audio'), async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3003;
 
 // Start the server on the specified port
 app.listen(PORT, () => {

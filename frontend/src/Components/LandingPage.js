@@ -1,6 +1,6 @@
-import React from 'react';
-import { Typography, Button, Box } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import { styled } from '@mui/system';
+import React from 'react';
 import MainContent from './MainContent';
 
 const GradientBackground = styled('div')({
@@ -34,14 +34,14 @@ const LandingPage = ({ onUpload }) => {
     <GradientBackground>
       <Box sx={{ p: 2 }}>
         <StyledTypography variant="h2" sx={{ mb: 2, display: 'inline' }}>
-          AudioSpark
+          Chuyển âm thanh thành PowerPoint - SparkHub AI
         </StyledTypography>
         <StyledIconTypography variant="h2" sx={{ mb: 2, display: 'inline' }}>
           {' '}
-          🎤
+          
         </StyledIconTypography>
         <h2 fontFamily = 'Righteous'>
-        Ignite your presentations! 🔥
+        Tăng sức mạnh cho bài thuyết trình của bạn! 🔥
         </h2>
         <Button
           variant="contained"
@@ -53,10 +53,10 @@ const LandingPage = ({ onUpload }) => {
            
           }}
         >
-          Upload an Audio File
+          Tải lên một File Âm Thanh
           <input type="file" accept="audio/*" hidden onChange={onUpload} />
         </Button>
-        <h5>Instantly generate and download your PPT by simply uploading your audio file and letting our AI do the work!</h5>
+        <h5>Nhanh chóng tạo và tải xuống bản trình chiếu PPT của bạn chỉ bằng cách tải lên tệp âm thanh và để SparkHub AI của chúng tôi thực hiện công việc!</h5>
       </Box>
     </GradientBackground>
     </MainContent>

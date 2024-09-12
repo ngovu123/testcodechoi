@@ -1,5 +1,5 @@
-import React from 'react';
 import { styled } from '@mui/system';
+import React from 'react';
 
 
 const FooterContainer = styled('footer')({
@@ -23,9 +23,8 @@ const FooterLink = styled('a')({
 const Footer = () => {
   return (
     <FooterContainer>
-      <FooterText>Created by Ashwini Uppal</FooterText>|
-      <FooterLink href="https://www.linkedin.com/in/ashwini-uppal/">LinkedIn</FooterLink>|
-      <FooterLink href="https://github.com/ashuppal">GitHub</FooterLink>
+      <FooterText>SparkHub AI</FooterText>|
+      <FooterLink href="https://www.facebook.com/profile.php?id=61553047801114">Fanfage</FooterLink>|
     </FooterContainer>
   );
 };
